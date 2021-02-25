@@ -85,14 +85,9 @@ Encore
   //   options['process.env'].APP_ENV = JSON.stringify(envConfig['APP_ENV'])
   // })
 
-  // .addAliases({
-  //   services: path.resolve(__dirname, 'assets/js/services'),
-  //   constants: path.resolve(__dirname, 'assets/js/constants'),
-  //   components: path.resolve(__dirname, 'assets/js/components'),
-  //   shared: path.resolve(__dirname, 'assets/js/shared')
-  //   //     generics: path.resolve(__dirname, 'assets/js/generics'),
-  //   //     shared: path.resolve(__dirname, 'assets/js/shared')
-  // })
+  .addAliases({
+    images: path.resolve(__dirname, 'assets/img')
+  })
   .configureBabel(() => {}, {
     useBuiltIns: 'usage',
     corejs: 3
