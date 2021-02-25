@@ -13,12 +13,14 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Home from './components/Home'
+import { HashRouter as Router } from 'react-router-dom'
+
+import '../css/index.scss'
+import App from './components/App'
 
 ReactDOM.render(
   <Router>
-    <Home />
+    <App />
   </Router>,
   document.getElementById('root')
 )
