@@ -30,4 +30,25 @@
       font-style: italic;
     }
   }
+
+  .affiche {
+    max-width: 40%;
+
+    &-paysage {
+      max-width: 90%;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .centered-video-container {
+    display: flex;
+    justify-content: center;
+
+    & > *:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
 }
