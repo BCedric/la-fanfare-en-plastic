@@ -21,8 +21,14 @@ header {
       list-style-type: none;
       margin: 0;
 
+      li.category,
+      span {
+        cursor: default;
+      }
+
       li:not(.category) {
         padding: 1em;
+        position: relative;
 
         &:hover {
           background-color: #000033;
@@ -38,6 +44,9 @@ header {
           z-index: 1;
           background-color: black;
           padding: 0;
+          min-width: max-content;
+          left: 0;
+          top: 100%;
 
           li.category {
             padding: 1em 1em;

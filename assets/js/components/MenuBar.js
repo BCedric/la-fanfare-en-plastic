@@ -11,55 +11,51 @@ const MenuBar = () => {
       </Link>
       <nav>
         <ul>
-          <li>
-            <Link to="/">Fanfare</Link>
-          </li>
-          <li>
-            <Link to="/fanfarons">Fanfarons</Link>
-          </li>
+          <Link to="/">
+            <li>Fanfare</li>
+          </Link>
+          <Link to="/fanfarons">
+            <li>Fanfarons</li>
+          </Link>
           <li>
             <span>Spectacle</span>
             <ul>
               <li className="category">Spectacles en cours</li>
-              <li>
-                <Link to="/fanfaronnades">Fanfaronnades</Link>
-              </li>
-              <li>
-                <Link to="/un-grain-dans-rouages">
-                  Un grain dans les rouages
-                </Link>
-              </li>
+              <Link to="/fanfaronnades">
+                <li>Fanfaronnades</li>
+              </Link>
+              <Link to="/un-grain-dans-rouages">
+                <li>Un grain dans les rouages</li>
+              </Link>
               <li className="category">Anciens spectacles</li>
-              <li>
-                <Link to="/fabuleuse-histoire">
-                  Une fabuleuse histoire ordinaire
-                </Link>
-              </li>
-              <li>
-                <Link to="/dans-la-rue">Dans la rue</Link>
-              </li>
+              <Link to="/fabuleuse-histoire">
+                <li>Une fabuleuse histoire ordinaire</li>
+              </Link>
+              <Link to="/dans-la-rue">
+                <li>Dans la rue</li>
+              </Link>
             </ul>
           </li>
           <li>
             <span>Media</span>
             <ul>
-              <li>
-                <Link to="/videos">Vidéos</Link>
-              </li>
-              <li>
-                <Link to="/photos">Photos</Link>
-              </li>
+              <Link to="/videos">
+                <li>Vidéos</li>
+              </Link>
+              <Link to="/photos">
+                <li>Photos</li>
+              </Link>
             </ul>
           </li>
-          <li>
-            <Link to="/agenda">Agenda</Link>
-          </li>
-          <li>
-            <Link to="/presse">Presse</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+          <Link to="/agenda">
+            <li>Agenda</li>
+          </Link>
+          <Link to="/presse">
+            <li>Presse</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
         </ul>
       </nav>
     </header>
