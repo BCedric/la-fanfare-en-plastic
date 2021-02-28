@@ -10,8 +10,6 @@ const images = importAll(
   require.context('images/photos', false, /\.(png|jpe?g|svg)$/)
 )
 
-console.log(images)
-
 const Photos = () => {
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)

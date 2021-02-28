@@ -11,8 +11,6 @@ const images = importAll(
 )
 
 const Fanfarons = () => {
-  const indexesToExpand = []
-
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)
 
