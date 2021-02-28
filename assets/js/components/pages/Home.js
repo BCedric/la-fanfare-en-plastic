@@ -1,5 +1,4 @@
 import React from 'react'
-import homeImg from 'images/fanfareAcc.jpg'
 import histoireImg from 'images/histoire.png'
 import aSavoirImg from 'images/asavoir.png'
 
