@@ -1,6 +1,7 @@
 .content {
   background-color: white;
   padding: 1em;
+  min-height: calc(100vh - 241px);
 
   p {
     text-align: justify;
