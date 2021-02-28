@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import Agenda from './pages/Agenda'
 
 import Fanfarons from './pages/Fanfarons'
 import Home from './pages/Home'
@@ -21,6 +22,7 @@ const AppRouter = () => {
       <Route path="/dans-la-rue" component={DansLaRue} />
       <Route path="/videos" component={Videos} />
       <Route path="/photos" component={Photos} />
+      <Route path="/agenda" component={Agenda} />
     </Switch>
   )
 }
