@@ -6,6 +6,7 @@ import Fanfarons from './pages/Fanfarons'
 import Home from './pages/Home'
 import Photos from './pages/media/Photos'
 import Videos from './pages/media/Videos'
+import Presse from './pages/Presse'
 import DansLaRue from './pages/spectacles/DansLaRue'
 import FabuleuseHistoire from './pages/spectacles/FabuleuseHistoire'
 import Fanfaronnades from './pages/spectacles/Fanfaronnades'
@@ -23,6 +24,7 @@ const AppRouter = () => {
       <Route path="/videos" component={Videos} />
       <Route path="/photos" component={Photos} />
       <Route path="/agenda" component={Agenda} />
+      <Route path="/presse" component={Presse} />
     </Switch>
   )
 }
