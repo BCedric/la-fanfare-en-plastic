@@ -1,6 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+
 import Agenda from './pages/Agenda'
+import Contact from './pages/Contact'
 
 import Fanfarons from './pages/Fanfarons'
 import Home from './pages/Home'
@@ -25,6 +27,7 @@ const AppRouter = () => {
       <Route path="/photos" component={Photos} />
       <Route path="/agenda" component={Agenda} />
       <Route path="/presse" component={Presse} />
+      <Route path="/contact" component={Contact} />
     </Switch>
   )
 }
