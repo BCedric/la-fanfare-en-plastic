@@ -1,0 +1,14 @@
+.inline-form {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+
+  & > * {
+    &:not(button) {
+      flex: 1;
+    }
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}

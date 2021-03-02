@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import moment from 'moment'
+
+import Http from 'services/Http'
+
 import datesImg from 'images/dates.png'
 
 const Agenda = () => {
+  const [dates, setDates] = useState([])
+
+  useEffect(() => {
+    Http.get('date/upcoming').then((dates) => setDates(dates))
+  }, [])
+
+  const getDate = (date) => {
+    const dateMoment = moment(date.date).locale('fr')
+    let res
+    if (dateMoment.minutes() !== 0 && dateMoment.hours() !== 0) {
+      res = dateMoment.format('dddd D MMMM à HH[h]mm')
+    } else {
+      res = dateMoment.format('dddd D MMMM')
+    }
+    return res.charAt(0).toUpperCase() + res.slice(1)
+  }
+
   return (
     <div>
       <p className="citation">
@@ -9,6 +31,15 @@ const Agenda = () => {
         » - <span>Poésie du terroir Magazine</span>
       </p>
       <h1>Prochains concerts</h1>
+      {dates.map((date, index) => (
+        <div key={index} className="agenda-date">
+          <span className="bold">{getDate(date)}</span>
+          <span>
+            {date.place} - {date.entertainment}
+          </span>
+          {date.info !== '' && <span>{date.info}</span>}
+        </div>
+      ))}
       <img src={datesImg} />
       <h2>Elle y est passée</h2>
       <ul>

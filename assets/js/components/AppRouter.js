@@ -1,5 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import Admin from './admin/Admin'
+import DatesList from './admin/Dates/DatesList'
 
 import Agenda from './pages/Agenda'
 import Contact from './pages/Contact'
@@ -28,6 +30,7 @@ const AppRouter = () => {
       <Route path="/agenda" component={Agenda} />
       <Route path="/presse" component={Presse} />
       <Route path="/contact" component={Contact} />
+      <Route path="/admin" component={Admin} />
     </Switch>
   )
 }

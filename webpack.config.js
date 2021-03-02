@@ -86,11 +86,17 @@ Encore
   // })
 
   .addAliases({
-    images: path.resolve(__dirname, 'assets/img')
+    images: path.resolve(__dirname, 'assets/img'),
+    services: path.resolve(__dirname, 'assets/js/services')
   })
-  .configureBabel(() => {}, {
-    useBuiltIns: 'usage',
-    corejs: 3
-  })
+  .configureBabel(
+    function (babelConfig) {
+      babelConfig.plugins.push('@babel/plugin-proposal-class-properties')
+    },
+    {
+      useBuiltIns: 'usage',
+      corejs: 3
+    }
+  )
 
 module.exports = Encore.getWebpackConfig()

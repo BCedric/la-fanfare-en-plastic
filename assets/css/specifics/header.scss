@@ -1,6 +1,7 @@
 header {
   display: flex;
   flex-direction: column;
+  background-color: black;
 
   .header-img {
     display: flex;
@@ -16,6 +17,10 @@ header {
   nav {
     color: white;
     text-decoration: none;
+
+    a:hover {
+      color: white;
+    }
     ul {
       display: flex;
       list-style-type: none;
