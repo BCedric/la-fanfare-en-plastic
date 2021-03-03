@@ -1,14 +1,24 @@
-.inline-form {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
+.admin {
+  & > *:not(h1) {
+    margin: 2em 0;
+  }
 
-  & > * {
-    &:not(button) {
-      flex: 1;
+  .inline-form {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
+    & > * {
+      &:not(button) {
+        flex: 1;
+      }
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
     }
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
+  }
+
+  .table img {
+    max-height: 3em;
   }
 }
