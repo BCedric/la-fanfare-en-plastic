@@ -15,57 +15,82 @@ header {
   }
 
   nav {
-    color: white;
-    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    a:hover {
-      color: white;
-    }
-    ul {
-      display: flex;
-      list-style-type: none;
-      margin: 0;
+    .facebook-icon {
+      width: 80px;
+      margin-bottom: 0.5em;
 
-      li.category,
-      span {
-        cursor: default;
+      path {
+        transform: translate(30 0);
       }
 
-      li:not(.category) {
-        padding: 1em;
-        position: relative;
+      circle {
+        transition: all 200ms;
+        opacity: 0;
+        fill: #212fb0;
+      }
 
-        &:hover {
-          background-color: #000033;
+      &:hover circle {
+        opacity: 1;
+      }
+    }
+
+    .menu {
+      color: white;
+      text-decoration: none;
+
+      a:hover {
+        color: white;
+      }
+      ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+
+        li.category,
+        span {
+          cursor: default;
+        }
+
+        li:not(.category) {
+          padding: 1em;
+          position: relative;
+
+          &:hover {
+            background-color: #000033;
+
+            ul {
+              display: block;
+              position: absolute;
+            }
+          }
 
           ul {
-            display: block;
-            position: absolute;
+            display: none;
+            z-index: 1;
+            background-color: black;
+            padding: 0;
+            min-width: max-content;
+            left: 0;
+            top: 100%;
+
+            li.category {
+              padding: 1em 1em;
+              font-style: italic;
+            }
+
+            li:not(.category) {
+              padding: 1em 2em;
+            }
           }
         }
 
-        ul {
-          display: none;
-          z-index: 1;
-          background-color: black;
-          padding: 0;
-          min-width: max-content;
-          left: 0;
-          top: 100%;
-
-          li.category {
-            padding: 1em 1em;
-            font-style: italic;
-          }
-
-          li:not(.category) {
-            padding: 1em 2em;
-          }
+        a {
+          color: white;
         }
-      }
-
-      a {
-        color: white;
       }
     }
   }
