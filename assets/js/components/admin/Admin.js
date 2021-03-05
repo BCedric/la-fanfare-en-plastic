@@ -8,7 +8,7 @@ import Fanfaron from './Fanfaron/Fanfaron'
 import PressArticles from './PressArticles/PressArticles'
 
 const Admin = () => {
-  const [isUserLogged, setIsUserLogged] = useState(true)
+  const [isUserLogged, setIsUserLogged] = useState(false)
 
   const submitLogin = (login, password) =>
     Http.put('auth', { login, password }).then(
