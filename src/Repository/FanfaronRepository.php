@@ -19,6 +19,11 @@ class FanfaronRepository extends ServiceEntityRepository
         parent::__construct($registry, Fanfaron::class);
     }
 
+    public function findAll()
+    {
+        return $this->findBy(array(), array('filename' => 'ASC'));
+    }
+
     // /**
     //  * @return Fanfaron[] Returns an array of Fanfaron objects
     //  */
