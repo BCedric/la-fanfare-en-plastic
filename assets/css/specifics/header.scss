@@ -18,6 +18,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
 
     .facebook-icon {
       width: 80px;
