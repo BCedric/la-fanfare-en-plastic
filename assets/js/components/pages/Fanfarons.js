@@ -2,17 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Gallery from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 
-function importAll(r) {
-  return r.keys().map(r)
-}
-
-const images = importAll(
-  require.context('images/fanfarons', false, /\.(png|jpe?g|svg)$/)
-)
+import Http from 'services/Http'
 
 const Fanfarons = () => {
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)
+  const [fanfarons, setFanfarons] = useState([])
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index)
@@ -24,11 +19,15 @@ const Fanfarons = () => {
     setViewerIsOpen(false)
   }
 
-  const photos = images.map((image) => ({
-    src: image,
+  const photos = fanfarons.map((fanfaron) => ({
+    src: `http://${window.location.hostname}/fanfaron/${fanfaron.filename}`,
     width: 2,
     height: 3
   }))
+
+  useEffect(() => {
+    Http.get('fanfaron').then((fanfarons) => setFanfarons(fanfarons))
+  }, [])
 
   return (
     <div>
