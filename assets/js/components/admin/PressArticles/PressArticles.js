@@ -28,7 +28,7 @@ const PressArticles = () => {
 
   return (
     <div>
-      <h1>Articles de presse</h1>
+      <h2>Articles de presse</h2>
       <PressArticlesList articles={articles} onDelete={onDelete} />
       <PressArticlesForm addArticle={addArticle} />
     </div>

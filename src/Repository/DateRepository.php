@@ -20,11 +20,14 @@ class DateRepository extends ServiceEntityRepository
         parent::__construct($registry, Date::class);
     }
 
+    public function findAll()
+    {
+        return $this->findBy(array(), array('date' => 'DESC'));
+    }
+
     public function findUpdomingDates()
     {
         $now = new DateTime();
-        // var_dump($now->format('Y-m-d H:i:s'));
-        // die;
         return $this->createQueryBuilder('d')
             ->andWhere('d.date > :date')
             ->setParameter('date', $now->format('Y-m-d H:i:s'))
