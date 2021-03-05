@@ -17,9 +17,9 @@ const Agenda = () => {
     const dateMoment = moment(date.date).locale('fr')
     let res
     if (dateMoment.minutes() !== 0 && dateMoment.hours() !== 0) {
-      res = dateMoment.format('dddd D MMMM à HH[h]mm')
+      res = dateMoment.format('dddd D MMMM YYYY à HH[h]mm')
     } else {
-      res = dateMoment.format('dddd D MMMM')
+      res = dateMoment.format('dddd D MMMM YYYY')
     }
     return res.charAt(0).toUpperCase() + res.slice(1)
   }
