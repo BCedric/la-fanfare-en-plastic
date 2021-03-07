@@ -31,21 +31,16 @@ class DateController extends AbstractController
      */
     public function index(DateRepository $dateRepository): Response
     {
-        return new JsonResponse($this->serializer->normalize($dateRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
-        );
+        return new JsonResponse($this->getDates($dateRepository));
     }
 
-    /**
-     * @Route("/upcoming", name="date_upcoming", methods={"GET"})
-     */
-    public function upcomingDates(DateRepository $dateRepository): Response
+    private function getDates(DateRepository $dateRepository)
     {
-        return new JsonResponse($this->serializer->normalize($dateRepository->findUpdomingDates(), null, ['circular_reference_handler' => function ($object) {
+        return ['upcoming' => $this->serializer->normalize($dateRepository->findUpcomingDates(), null, ['circular_reference_handler' => function ($object) {
             return $object->getId();
-        }])
-        );
+        }]), 'passed' => $this->serializer->normalize($dateRepository->findPassedDates(), null, ['circular_reference_handler' => function ($object) {
+            return $object->getId();
+        }])];
     }
 
     /**
@@ -61,11 +56,7 @@ class DateController extends AbstractController
         $entityManager->persist($date);
         $entityManager->flush();
 
-        return new JsonResponse($this->serializer->normalize($dateRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
-        );
-
+        return new JsonResponse($this->getDates($dateRepository));
     }
 
     /**
@@ -103,10 +94,7 @@ class DateController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($date);
         $entityManager->flush();
-        return new JsonResponse($this->serializer->normalize($dateRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
-        );
+        return new JsonResponse($this->getDates($dateRepository));
 
     }
 }

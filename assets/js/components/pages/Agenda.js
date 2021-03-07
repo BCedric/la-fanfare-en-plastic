@@ -10,7 +10,7 @@ const Agenda = () => {
   const [dates, setDates] = useState([])
 
   useEffect(() => {
-    Http.get('date/upcoming').then((dates) => setDates(dates))
+    Http.get('date').then((dates) => setDates(dates.upcoming))
   }, [])
 
   const getDate = (date) => {

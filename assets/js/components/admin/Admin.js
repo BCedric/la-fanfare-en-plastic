@@ -21,10 +21,12 @@ const Admin = () => {
         <AdminLogin onSubmit={submitLogin} />
       ) : (
         <React.Fragment>
-          <h1>Administration</h1>
-          <Dates />
-          <PressArticles />
-          <Fanfaron />
+          <React.Fragment>
+            <h1>Administration</h1>
+            <Dates />
+            <PressArticles />
+            <Fanfaron />
+          </React.Fragment>
         </React.Fragment>
       )}
     </div>

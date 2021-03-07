@@ -25,14 +25,26 @@ class DateRepository extends ServiceEntityRepository
         return $this->findBy(array(), array('date' => 'DESC'));
     }
 
-    public function findUpdomingDates()
+    public function findUpcomingDates()
     {
         $now = new DateTime();
         return $this->createQueryBuilder('d')
             ->andWhere('d.date > :date')
             ->setParameter('date', $now->format('Y-m-d H:i:s'))
             ->orderBy('d.date', 'ASC')
-            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+    public function findPassedDates()
+    {
+        $now = new DateTime();
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.date < :date')
+            ->setParameter('date', $now->format('Y-m-d H:i:s'))
+            ->orderBy('d.date', 'DESC')
             ->getQuery()
             ->getResult()
         ;
