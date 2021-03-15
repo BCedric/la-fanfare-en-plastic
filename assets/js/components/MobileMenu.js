@@ -1,21 +1,32 @@
 import React from 'react'
-
-import fanfareBandeau from 'images/fanfare-bandeau.png'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useMediaQuery } from 'react-responsive'
-import MobileMenu from './MobileMenu'
 
-const MenuBar = () => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-device-width: 768px)'
-  })
+const MobileMenu = () => {
+  const [isMenuToggled, setIsMenuToggled] = useState(false)
+
+  const toggleMenu = (e) => setIsMenuToggled(!isMenuToggled)
+
+  const toggleCategory = (e, data) => {
+    // e.preventDefault()
+    e.persist()
+
+    const li = e.currentTarget
+
+    const ul = li.querySelector('ul')
+
+    console.log(ul.classList.add('display'))
+    if (ul.classList.contains('display')) {
+      ul.classList.remove('display')
+    } else {
+      ul.className += ' display'
+    }
+  }
+
   return (
-    <header>
-      <Link to="/" className="header-img">
-        <img src={fanfareBandeau} />
-      </Link>
-      {isDesktopOrLaptop ? (
-        <nav>
+    <nav className="mobile-menu">
+      {isMenuToggled && (
+        <div>
           <div className="menu">
             <ul>
               <Link to="/">
@@ -24,17 +35,15 @@ const MenuBar = () => {
               <Link to="/fanfarons">
                 <li>Fanfarons</li>
               </Link>
-              <li>
+              <li className="collapsable" onClick={toggleCategory}>
                 <span>Spectacles</span>
                 <ul>
-                  <li className="category">Spectacles en cours</li>
                   <Link to="/fanfaronnades">
                     <li>Fanfaronnades</li>
                   </Link>
                   <Link to="/un-grain-dans-rouages">
                     <li>Un grain dans les rouages</li>
                   </Link>
-                  <li className="category">Anciens spectacles</li>
                   <Link to="/fabuleuse-histoire">
                     <li>Une fabuleuse histoire ordinaire</li>
                   </Link>
@@ -43,7 +52,7 @@ const MenuBar = () => {
                   </Link>
                 </ul>
               </li>
-              <li>
+              <li className="collapsable" onClick={toggleCategory}>
                 <span>Media</span>
                 <ul>
                   <Link to="/videos">
@@ -86,12 +95,35 @@ const MenuBar = () => {
               </svg>
             </a>
           </div>
-        </nav>
-      ) : (
-        <MobileMenu />
+        </div>
       )}
-    </header>
+      <div
+        className={`arrow-icon ${isMenuToggled ? 'open' : ''}`}
+        onClick={toggleMenu}
+      >
+        <svg viewBox="0 0 284.929 284.929">
+          <g>
+            <path d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441   L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082   c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647   c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z" />
+          </g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+        </svg>
+      </div>
+    </nav>
   )
 }
 
-export default MenuBar
+export default MobileMenu

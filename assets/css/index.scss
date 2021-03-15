@@ -1,3 +1,5 @@
+$screen-md-min: 768px;
+
 @import './generics/body.scss';
 @import './generics/table.scss';
 @import './generics/titles.scss';
@@ -10,3 +12,4 @@
 @import './specifics/header.scss';
 @import './specifics/home.scss';
 @import './specifics/videos.scss';
+

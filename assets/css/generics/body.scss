@@ -3,13 +3,15 @@ html {
   margin: 0;
 }
 
+
 body {
+  font-size: 16px !important;
   background-color: black;
   height: 100%;
   min-height: 100%;
   margin: 0;
   font-family: Helvetica, Arial, sans-serif !important;
-
+  
   * {
     outline: none;
   }
