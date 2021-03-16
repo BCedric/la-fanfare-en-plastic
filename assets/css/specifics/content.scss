@@ -53,17 +53,24 @@
     & > *:not(:last-child) {
       margin-right: 1em;
     }
-
-     @media screen and (max-width: 768px) {
-          iframe {
-              max-width: 100% !important;
-              width: auto !important;
-              height: auto !important;
-          }
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      iframe {
+          max-width: 100% !important;
+          width: auto !important;
+          height: auto !important;
+        }
       }
-
+      
+      @media screen and (max-width: 647px) {
+        iframe {
+            margin: 0.5em 0.2em !important;
+          }
+        
+    }
     
   }
+  
 
   .press-articles {
     display: flex;
@@ -85,6 +92,7 @@
         img {
           width: 100%;
           height: auto;
+          max-height: none;
 
         }
       }
