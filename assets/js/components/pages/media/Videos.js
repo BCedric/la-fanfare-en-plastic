@@ -33,8 +33,8 @@ const Videos = () => {
       <img src={videos} />
       <h1>Vidéos</h1>
       <div className="videos-container">
-        {links.map((obj) => (
-          <div className="video">
+        {links.map((obj, index) => (
+          <div className="video" key={index}>
             <iframe
               width="556"
               height="311"
