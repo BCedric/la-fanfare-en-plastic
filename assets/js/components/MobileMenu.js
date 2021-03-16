@@ -7,62 +7,36 @@ const MobileMenu = () => {
 
   const toggleMenu = (e) => setIsMenuToggled(!isMenuToggled)
 
-  const toggleCategory = (e, data) => {
-    // e.preventDefault()
-    e.persist()
-
-    const li = e.currentTarget
-
-    const ul = li.querySelector('ul')
-
-    console.log(ul.classList.add('display'))
-    if (ul.classList.contains('display')) {
-      ul.classList.remove('display')
-    } else {
-      ul.className += ' display'
-    }
-  }
-
   return (
     <nav className="mobile-menu">
       {isMenuToggled && (
         <div>
           <div className="menu">
-            <ul>
+            <ul onClick={toggleMenu}>
               <Link to="/">
                 <li>Fanfare</li>
               </Link>
               <Link to="/fanfarons">
                 <li>Fanfarons</li>
               </Link>
-              <li className="collapsable" onClick={toggleCategory}>
-                <span>Spectacles</span>
-                <ul>
-                  <Link to="/fanfaronnades">
-                    <li>Fanfaronnades</li>
-                  </Link>
-                  <Link to="/un-grain-dans-rouages">
-                    <li>Un grain dans les rouages</li>
-                  </Link>
-                  <Link to="/fabuleuse-histoire">
-                    <li>Une fabuleuse histoire ordinaire</li>
-                  </Link>
-                  <Link to="/dans-la-rue">
-                    <li>Dans la rue</li>
-                  </Link>
-                </ul>
-              </li>
-              <li className="collapsable" onClick={toggleCategory}>
-                <span>Media</span>
-                <ul>
-                  <Link to="/videos">
-                    <li>Vidéos</li>
-                  </Link>
-                  <Link to="/photos">
-                    <li>Photos</li>
-                  </Link>
-                </ul>
-              </li>
+              <Link to="/fanfaronnades">
+                <li>Fanfaronnades</li>
+              </Link>
+              <Link to="/un-grain-dans-rouages">
+                <li>Un grain dans les rouages</li>
+              </Link>
+              <Link to="/fabuleuse-histoire">
+                <li>Une fabuleuse histoire ordinaire</li>
+              </Link>
+              <Link to="/dans-la-rue">
+                <li>Dans la rue</li>
+              </Link>
+              <Link to="/videos">
+                <li>Vidéos</li>
+              </Link>
+              <Link to="/photos">
+                <li>Photos</li>
+              </Link>
               <Link to="/agenda">
                 <li>Agenda</li>
               </Link>
