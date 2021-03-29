@@ -21,7 +21,7 @@ const Home = () => {
         gonflé par de plus en plus d'arrivées. Aujourd'hui il peut atteindre un
         pic de Fanfarons allant jusqu'à 37 !
       </p>
-      <img src={histoireImg} />
+      <img src={histoireImg} alt="histoire" />
       <p>
         Bien entendu pour retrouver le LA dans ce joyeux bazar, un sérieux coup
         de main et surtout d'oreille est apporté par un pro - un vrai - Éric. Il
@@ -74,7 +74,7 @@ const Home = () => {
           </a>
         </p>
 
-        <img src={aSavoirImg} />
+        <img src={aSavoirImg} alt="bonhomme dans son fauteuil" />
       </div>
     </div>
   )

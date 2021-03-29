@@ -25,6 +25,7 @@ const PressArticlesList = ({ articles = [], onDelete = () => {} }) => {
             <td>
               <img
                 src={`http://${window.location.hostname}/press-article/${article.filename}`}
+                alt={article.filename}
               />{' '}
             </td>
             <td>

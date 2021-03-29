@@ -5,7 +5,11 @@ import affiche from 'images/spectacles/fabuleuse.png'
 const FabuleuseHistoire = () => {
   return (
     <div>
-      <img className="affiche" src={affiche} />
+      <img
+        className="affiche"
+        src={affiche}
+        alt="affiche fabuleuse histoire ordinaire"
+      />
       <h1>Une fabuleuse histoire ordinaire (ancien spectacle 2008 - 2012)</h1>
       <p>
         En une heure, revivez 70 ans d'histoire ! Souvenez-vous : le bal

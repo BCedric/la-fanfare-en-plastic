@@ -5,7 +5,7 @@ import affiche from 'images/spectacles/fanfaronnades.jpg'
 const Fanfaronnades = () => {
   return (
     <div>
-      <img className="affiche" src={affiche} />
+      <img className="affiche" src={affiche} alt="affiche fanfaronnades" />
       <h1>Fanfaronnades</h1>
       <p>
         L'ancienne formule est la formule originale, la base de la Fanfare en

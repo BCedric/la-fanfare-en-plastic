@@ -17,6 +17,7 @@ const FanfaronList = ({ fanfarons, onDelete }) => {
             <td>
               <img
                 src={`http://${window.location.hostname}/fanfaron/${fanfaron.filename}`}
+                alt={fanfaron.filename}
               />{' '}
             </td>
             <td>

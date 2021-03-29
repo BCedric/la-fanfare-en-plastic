@@ -22,7 +22,7 @@ const Presse = () => {
         {articles.map((article, index) => (
           <div key={index}>
             <a href={articleSrc(article)} target="_blank">
-              <img src={articleSrc(article)} />
+              <img src={articleSrc(article)} alt={article.filename} />
             </a>
             <legend>
               {article.newspaper}, {displayDate(article.date)}

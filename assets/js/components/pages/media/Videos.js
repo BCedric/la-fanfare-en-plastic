@@ -30,7 +30,7 @@ const Videos = () => {
   ]
   return (
     <div>
-      <img src={videos} />
+      <img src={videos} alt="video" />
       <h1>Vidéos</h1>
       <div className="videos-container">
         {links.map((obj, index) => (

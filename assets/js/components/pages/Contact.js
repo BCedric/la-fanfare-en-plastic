@@ -10,7 +10,7 @@ const Contact = () => {
         <span>Des hommes et des araignées </span>ed. Larousse
       </p>
       <h1>Coordonnées</h1>
-      <img src={contactImg} />
+      <img src={contactImg} alt="telephone" />
       <div className="contacts-content">
         <p>Antoine : 06 75 18 69 82</p>
         <p>

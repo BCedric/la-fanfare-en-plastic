@@ -40,7 +40,7 @@ const Agenda = () => {
           {date.info !== '' && <span>{date.info}</span>}
         </div>
       ))}
-      <img src={datesImg} />
+      <img src={datesImg} alt="dates" />
       <h2>Elle y est passée</h2>
       <ul>
         <li>Festival One Two Tripoux - Thiézac (15) en 2019</li>

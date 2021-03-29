@@ -5,7 +5,7 @@ import photo from 'images/spectacles/rue.jpg'
 const DansLaRue = () => {
   return (
     <div>
-      <img className="affiche-paysage" src={photo} />
+      <img className="affiche-paysage" src={photo} alt="image dans la rue" />
       <h1>Dans la rue (ancien spectacle 2013 - 2016)</h1>
       <p>
         En une heure, ces chansons de Brassens, Vian, Brigitte Fontaine, Piaf, R

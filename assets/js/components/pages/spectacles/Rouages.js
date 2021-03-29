@@ -5,7 +5,11 @@ import affiche from 'images/spectacles/affiche_grain.jpg'
 const Rouages = () => {
   return (
     <div>
-      <img className="affiche" src={affiche} />
+      <img
+        className="affiche"
+        src={affiche}
+        alt="affiche un grain dans les rouages"
+      />
       <h1>Un grain dans les rouages</h1>
       <p>
         En une heure ces chansons de Camille, Jean Yanne, Eddy Mitchel, les
