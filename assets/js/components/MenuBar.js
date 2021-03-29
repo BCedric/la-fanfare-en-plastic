@@ -12,7 +12,7 @@ const MenuBar = () => {
   return (
     <header>
       <Link to="/" className="header-img">
-        <img src={fanfareBandeau} />
+        <img src={fanfareBandeau} alt="fanfare bandeau" />
       </Link>
       {isDesktopOrLaptop ? (
         <nav>
