@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "jodit-react": "^1.2.6",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-draft-wysiwyg": "^1.14.7",
     "react-images": "^1.0.0",
     "react-photo-gallery": "^8.0.0",
     "react-responsive": "^8.2.0",

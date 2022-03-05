@@ -43,6 +43,12 @@ const Agenda = () => {
       <img src={datesImg} alt="dates" />
       <h2>Elle y est passée</h2>
       <ul>
+        <li>Festival au Village - Brioux sur Boutonne (79) en 2021</li>
+        <li>Fête de la StJean - Lussac les Châteaux (86) en 2021</li>
+        <li>Fête du Clos - Les Roches Prémaries (86) en 2021</li>
+        <li>La foire aux melons - Vendeuvre du Poitou (86)</li>
+        <li>St Martin Valmeroux (15)</li>
+        <li>Curzay sur Vonne (86)</li>
         <li>Festival One Two Tripoux - Thiézac (15) en 2019</li>
         <li>soirée au Château - Chiré en Montreuil (86) en 2019</li>
         <li>les jeudis jeux de rue - Angoulême / Allègre (63) en 2019</li>

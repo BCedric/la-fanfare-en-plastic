@@ -35,4 +35,45 @@
     padding: 1em;
     cursor: pointer;
   }
+
+  .img-item-view {
+    max-height: 100px;
+  }
+
+  .jodit-react-container {
+    margin: 1em 0;
+  }
+
+  .form-cabaret,
+  .form-image-cabaret {
+    margin-bottom: 1em;
+  }
+
+  .informations {
+    overflow: hidden;
+    text-align: center;
+    font-style: italic;
+    max-height: 30px;
+    transition: all 500ms;
+
+    &.danger {
+      color: red;
+    }
+
+    &.hidden {
+      max-height: 0;
+    }
+  }
+
+  .toggle-help {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    .material-icons {
+      transition: all 500ms;
+      &.open {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
