@@ -60,6 +60,9 @@ const MenuBar = () => {
               <Link to="/presse">
                 <li>Presse</li>
               </Link>
+              <Link to="/cabaret">
+                <li>Les Soirées Cabarets</li>
+              </Link>
               <Link to="/contact">
                 <li>Contact</li>
               </Link>
