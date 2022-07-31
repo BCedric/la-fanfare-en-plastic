@@ -6,6 +6,7 @@ import AdminLogin from './AdminLogin'
 import CabaretPage from './CabaretPage/CabaretPage'
 import Dates from './Dates/Dates'
 import Fanfaron from './Fanfaron/Fanfaron'
+import MediaPhoto from './MediaPhoto/MediaPhoto'
 import PressArticles from './PressArticles/PressArticles'
 
 const Admin = () => {
@@ -31,6 +32,8 @@ const Admin = () => {
             <PressArticles />
             <hr />
             <Fanfaron />
+            <hr />
+            <MediaPhoto />
           </React.Fragment>
         </React.Fragment>
       )}

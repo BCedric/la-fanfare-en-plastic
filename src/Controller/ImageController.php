@@ -62,13 +62,10 @@ class ImageController extends AbstractController
         $uploadedFile = $request->files->get('file');
 
         $filename = $uploadedFile->getClientOriginalName();
-
         if ($imageRepository->findOneBy(['filename' => $filename])) {
             return new Response('Un média avec ce nom existe déjà', 500);
         }
-
-        $image->setFilename($filename);
-        $uploadedFile->move($this->directory . '/', $filename);
+        $image->upload($uploadedFile);
 
         $em->persist($image);
         $em->flush();

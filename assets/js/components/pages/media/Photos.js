@@ -1,18 +1,30 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import Gallery from 'react-photo-gallery'
 
-function importAll(r) {
-  return r.keys().map(r)
-}
-
-const images = importAll(
-  require.context('images/photos', false, /\.(png|jpe?g|svg)$/)
-)
+import Http from 'services/Http'
 
 const Photos = () => {
   const [currentImage, setCurrentImage] = useState(0)
   const [viewerIsOpen, setViewerIsOpen] = useState(false)
+  const [mediaPhotos, setMediaPhotos] = useState([])
+  const [photos, setPhotos] = useState([])
+
+  useEffect(() => {
+    setPhotos(
+      mediaPhotos.map(({ image }) => {
+        return {
+          src: `http://${window.location.hostname}/image/${image.filename}`,
+          width: image.width,
+          height: image.height
+        }
+      })
+    )
+  }, [mediaPhotos])
+
+  useEffect(() => {
+    Http.get('media-photo').then((mp) => setMediaPhotos(mp))
+  }, [])
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index)
@@ -23,12 +35,6 @@ const Photos = () => {
     setCurrentImage(0)
     setViewerIsOpen(false)
   }
-
-  const photos = images.map((image) => ({
-    src: image,
-    width: 3,
-    height: 2
-  }))
 
   return (
     <div>
