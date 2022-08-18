@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 const MediaPhotoForm = ({ images, submit }) => {
-  const [imageSelected, setImageSelected] = useState('')
+  const [imagesSelected, setImagesSelected] = useState([])
 
   const onSubmit = (e) => {
-    submit({ image: imageSelected })(e).then(() => setImageSelected(''))
+    submit({ images: imagesSelected })(e).then(() => setImagesSelected(''))
   }
 
   return (
@@ -13,12 +13,21 @@ const MediaPhotoForm = ({ images, submit }) => {
         <label className="form-label">Image</label>
         <select
           className="form-control"
-          onChange={(e) => (
-            console.log(e.target.value), setImageSelected(e.target.value)
-          )}
-          value={imageSelected}
+          onChange={(e) => {
+            const options = e.target.options
+            const value = options[options.selectedIndex].value
+            const copy = [...imagesSelected]
+            if (imagesSelected.includes(value)) {
+              const index = copy.findIndex((item) => item === value)
+              copy.splice(index, 1)
+            } else {
+              copy.push(value)
+            }
+            setImagesSelected(copy)
+          }}
+          value={imagesSelected}
+          multiple
         >
-          <option value=""></option>
           {images.map((i, key) => (
             <option key={key} value={i.id}>
               {i.filename}

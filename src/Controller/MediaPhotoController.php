@@ -45,11 +45,13 @@ class MediaPhotoController extends AbstractController
     public function create(Request $request, EntityManagerInterface $em, ImageRepository $imageRepository, MediaPhotoRepository $mediaPhotoRepository)
     {
         $body = json_decode($request->getContent(), true);
-        $mediaPhoto = new MediaPhoto();
-        $image = $imageRepository->findOneBy(['id' => $body['image']]);
-        $mediaPhoto->setImage($image);
+        foreach ($body['images'] as $image_id) {
+            $mediaPhoto = new MediaPhoto();
+            $image = $imageRepository->findOneBy(['id' => $image_id]);
+            $mediaPhoto->setImage($image);
 
-        $em->persist($mediaPhoto);
+            $em->persist($mediaPhoto);
+        }
 
         $em->flush();
 
