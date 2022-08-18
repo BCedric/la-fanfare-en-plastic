@@ -6,6 +6,7 @@ import AdminLogin from './AdminLogin'
 import CabaretPage from './CabaretPage/CabaretPage'
 import Dates from './Dates/Dates'
 import Fanfaron from './Fanfaron/Fanfaron'
+import Images from './Images/Images'
 import MediaPhoto from './MediaPhoto/MediaPhoto'
 import PressArticles from './PressArticles/PressArticles'
 
@@ -26,6 +27,8 @@ const Admin = () => {
           <React.Fragment>
             <h1>Administration</h1>
             <CabaretPage />
+            <hr />
+            <Images />
             <hr />
             <Dates />
             <hr />

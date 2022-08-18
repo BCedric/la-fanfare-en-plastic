@@ -55,8 +55,8 @@ const CabaretPage = () => {
         </p>
         <p className="informations danger hidden" ref={help}>
           Pour insérer une image dans la page des soirées cabaret, veuillez
-          l'ajouter à la liste ci-dessous, puis copier le lien pour l'insérer
-          dans l'éditeur ci-dessus en utilisant l'outil{' '}
+          l'ajouter à la liste de la banque d'images (ci-dessous), puis copier
+          le lien pour l'insérer dans l'éditeur ci-dessus en utilisant l'outil{' '}
           <span className="jodit-toolbar-button__icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,6 @@ const CabaretPage = () => {
           drag n'drop.
         </p>
       </div>
-      <ImageList />
     </div>
   )
 }
