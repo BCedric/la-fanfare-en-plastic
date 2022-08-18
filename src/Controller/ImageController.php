@@ -37,7 +37,9 @@ class ImageController extends AbstractController
     public function index(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findAll();
-        return new JsonResponse($this->serializer->normalize($images));
+        return new JsonResponse($this->serializer->normalize($images, 'json', ['circular_reference_handler' => function ($object) {
+            return $object->getId();
+        }]));
     }
 
     /**

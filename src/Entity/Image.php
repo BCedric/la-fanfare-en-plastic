@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ImageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,6 +35,16 @@ class Image
      * @ORM\Column(type="integer")
      */
     private $height;
+
+    /**
+     * @ORM\OneToMany(targetEntity=MediaPhoto::class, mappedBy="image")
+     */
+    private $mediaPhotos;
+
+    public function __construct()
+    {
+        $this->mediaPhotos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -82,6 +94,36 @@ class Image
     public function setHeight(int $height): self
     {
         $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MediaPhoto[]
+     */
+    public function getMediaPhotos(): Collection
+    {
+        return $this->mediaPhotos;
+    }
+
+    public function addMediaPhoto(MediaPhoto $mediaPhoto): self
+    {
+        if (!$this->mediaPhotos->contains($mediaPhoto)) {
+            $this->mediaPhotos[] = $mediaPhoto;
+            $mediaPhoto->setIm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMediaPhoto(MediaPhoto $mediaPhoto): self
+    {
+        if ($this->mediaPhotos->removeElement($mediaPhoto)) {
+            // set the owning side to null (unless already changed)
+            if ($mediaPhoto->getIm() === $this) {
+                $mediaPhoto->setIm(null);
+            }
+        }
 
         return $this;
     }

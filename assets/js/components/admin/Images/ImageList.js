@@ -3,6 +3,8 @@ import React from 'react'
 const ImageList = ({ deleteImage, images }) => {
   const imgSrc = (image) => `${window.BASE_URL}/image/${image.filename}`
 
+  const isImgUsed = (img) => img.mediaPhotos.length > 0
+
   return (
     <>
       <table className="table">
@@ -27,12 +29,14 @@ const ImageList = ({ deleteImage, images }) => {
                 <img className="img-item-view" src={imgSrc(image)} />
               </td>
               <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteImage(image.id)}
-                >
-                  Supprimer
-                </button>
+                {!isImgUsed(image) && (
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteImage(image.id)}
+                  >
+                    Supprimer
+                  </button>
+                )}
               </td>
             </tr>
           ))}
