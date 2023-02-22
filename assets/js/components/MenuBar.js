@@ -28,11 +28,11 @@ const MenuBar = () => {
                 <span>Spectacles</span>
                 <ul>
                   <li className="category">Spectacles en cours</li>
+                  <Link to="/les-habitants-du-doute">
+                    <li>Les habitans du doute</li>
+                  </Link>
                   <Link to="/fanfaronnades">
                     <li>Fanfaronnades</li>
-                  </Link>
-                  <Link to="/un-grain-dans-rouages">
-                    <li>Un grain dans les rouages</li>
                   </Link>
                   <li className="category">Anciens spectacles</li>
                   <Link to="/fabuleuse-histoire">
@@ -40,6 +40,9 @@ const MenuBar = () => {
                   </Link>
                   <Link to="/dans-la-rue">
                     <li>Dans la rue</li>
+                  </Link>
+                  <Link to="/un-grain-dans-rouages">
+                    <li>Un grain dans les rouages</li>
                   </Link>
                 </ul>
               </li>

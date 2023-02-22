@@ -15,6 +15,7 @@ import Presse from './pages/Presse'
 import DansLaRue from './pages/spectacles/DansLaRue'
 import FabuleuseHistoire from './pages/spectacles/FabuleuseHistoire'
 import Fanfaronnades from './pages/spectacles/Fanfaronnades'
+import HabitantsDuDoute from './pages/spectacles/HabitantsDuDoute'
 import Rouages from './pages/spectacles/Rouages'
 
 const AppRouter = () => {
@@ -33,6 +34,7 @@ const AppRouter = () => {
       <Route path="/contact" component={Contact} />
       <Route path="/admin" component={Admin} />
       <Route path="/cabaret" component={Page} />
+      <Route path="/les-habitants-du-doute" component={HabitantsDuDoute} />
     </Switch>
   )
 }

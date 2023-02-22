@@ -84,6 +84,7 @@ const DateForm = ({ addDate }) => {
           onChange={(e) => setEntertainment(e.target.value)}
         >
           <option value="Fanfaronnades">Fanfaronnades</option>
+          <option value="Les habitants du doute">Les habitants du doute</option>
           <option value="Un grain dans les rouages">
             Un grain dans les rouages
           </option>
