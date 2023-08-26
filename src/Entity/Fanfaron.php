@@ -38,4 +38,14 @@ class Fanfaron
 
         return $this;
     }
+
+    public function getSize()
+    {
+
+        [$width, $height] = getimagesize('fanfarons/' . $this->getFilename());
+        return [
+            'width' => $width,
+            'height' => $height,
+        ];
+    }
 }

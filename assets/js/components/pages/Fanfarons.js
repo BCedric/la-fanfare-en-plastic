@@ -19,11 +19,13 @@ const Fanfarons = () => {
     setViewerIsOpen(false)
   }
 
-  const photos = fanfarons.map((fanfaron) => ({
-    src: `http://${window.location.hostname}/fanfaron/${fanfaron.filename}`,
-    width: 2,
-    height: 3
-  }))
+  const photos = fanfarons.map((fanfaron) => {
+    return {
+      src: `http://${window.location.hostname}/fanfaron/${fanfaron.filename}`,
+      width: fanfaron.size.width,
+      height: fanfaron.size.height
+    }
+  })
 
   useEffect(() => {
     Http.get('fanfaron').then((fanfarons) => setFanfarons(fanfarons))
