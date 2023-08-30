@@ -43,14 +43,15 @@
   }
 
   .habitants-doute {
-    .img-container {
+    .imgs-container {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      .affiche-paysage {
-        width: 70%;
-        margin: 0.5em;
+
+      img {
+        max-width: 70%;
+        margin: 0.25em;
       }
     }
   }

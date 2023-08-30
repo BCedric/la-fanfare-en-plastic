@@ -1,19 +1,12 @@
 import React from 'react'
-import habitansDuDoute1 from 'images/spectacles/habitans-du-doute1-min.jpg'
-import habitansDuDoute2 from 'images/spectacles/habitans-du-doute2-min.jpg'
-import habitansDuDoute3 from 'images/spectacles/habitans-du-doute3-min.jpg'
-import habitansDuDoute4 from 'images/spectacles/habitans-du-doute4-min.jpg'
+import habitansDuDoute1 from 'images/spectacles/Les Habitants du Doute - la Fanfare en Plastic.jpg'
+import habitansDuDoute2 from 'images/spectacles/La Fanfare en Plastic. @Lucas Moreau BD.jpg'
+import habitansDuDoute3 from 'images/spectacles/La Fanfare en Plastic 2 @Lucas Moreau BD.jpg'
 
 const HabitantsDuDoute = () => {
   return (
     <div className="habitants-doute">
-      <div className="img-container">
-        <img
-          src={habitansDuDoute4}
-          title="Crédit : Ojunix"
-          className="affiche-paysage"
-        />
-      </div>
+      <img src={habitansDuDoute1} className="affiche" />
       <h1>Les habitants du doute</h1>
       <p>
         La Fanfare en Plastic est toujours là. Ses nombreux musicien-nes et
@@ -24,16 +17,9 @@ const HabitantsDuDoute = () => {
         France Gall, Debout sur le Zinc... vous donneront rires, émotions,
         révoltes, et plus que jamais l’envie d’émancipation et de liberté.
       </p>
-      <div className="img-line">
-        <img
-          src={habitansDuDoute3}
-          title="Crédit : Ojunix"
-          className="affiche-paysage"
-        />
-        <img src={habitansDuDoute2} className="affiche-paysage" />
-      </div>
-      <div className="img-line">
-        <img src={habitansDuDoute1} className="affiche-paysage" />
+      <div className="imgs-container">
+        <img src={habitansDuDoute3} />
+        <img src={habitansDuDoute2} />
       </div>
     </div>
   )
