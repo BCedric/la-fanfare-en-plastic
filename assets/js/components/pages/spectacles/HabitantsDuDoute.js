@@ -1,7 +1,7 @@
-import React from 'react'
-import habitansDuDoute1 from 'images/spectacles/Les Habitants du Doute - la Fanfare en Plastic.jpg'
-import habitansDuDoute2 from 'images/spectacles/La Fanfare en Plastic. @Lucas Moreau BD.jpg'
 import habitansDuDoute3 from 'images/spectacles/La Fanfare en Plastic 2 @Lucas Moreau BD.jpg'
+import habitansDuDoute2 from 'images/spectacles/La Fanfare en Plastic. @Lucas Moreau BD.jpg'
+import habitansDuDoute1 from 'images/spectacles/Les Habitants du Doute - la Fanfare en Plastic.jpg'
+import React from 'react'
 
 const HabitantsDuDoute = () => {
   return (
@@ -17,6 +17,15 @@ const HabitantsDuDoute = () => {
         France Gall, Debout sur le Zinc... vous donneront rires, émotions,
         révoltes, et plus que jamais l’envie d’émancipation et de liberté.
       </p>
+      <div className="hdd-video-container">
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/9oTuPsLGcbw?si=NJs96Uko5JBZSvYj"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
       <div className="imgs-container">
         <img src={habitansDuDoute3} />
         <img src={habitansDuDoute2} />
