@@ -1,5 +1,5 @@
 var Encore = require('@symfony/webpack-encore')
-// var dotenv = require('dotenv')
+var dotenv = require('dotenv')
 const fs = require('fs')
 var path = require('path')
 
@@ -74,16 +74,16 @@ Encore
   // uncomment if you use API Platform Admin (composer req api-admin)
   //.enableReactPreset()
   //.addEntry('admin', './assets/js/admin.js')
-  // .configureDefinePlugin((options) => {
-  //   const env = dotenv.config()
-  //   const envConfig = dotenv.parse(fs.readFileSync('.env.local'))
-  //   if (env.error) {
-  //     throw env.error
-  //   }
+  .configureDefinePlugin((options) => {
+    const env = dotenv.config()
+    const envConfig = dotenv.parse(fs.readFileSync('.env.local'))
+    if (env.error) {
+      throw env.error
+    }
 
-  //   options['process.env'].API_TOKEN = JSON.stringify(envConfig['API_TOKEN'])
-  //   options['process.env'].APP_ENV = JSON.stringify(envConfig['APP_ENV'])
-  // })
+    options['process.env.API_TOKEN'] = JSON.stringify(envConfig['API_TOKEN'])
+    options['process.env.APP_ENV'] = JSON.stringify(envConfig['APP_ENV'])
+  })
 
   .addAliases({
     images: path.resolve(__dirname, 'assets/img'),

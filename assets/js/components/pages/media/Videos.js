@@ -1,8 +1,12 @@
-import React from 'react'
 import videos from 'images/videos.png'
+import React from 'react'
 
 const Videos = () => {
   const links = [
+    {
+      link: 'https://www.youtube.com/embed/9oTuPsLGcbw?si=NJs96Uko5JBZSvYj',
+      legend: 'Les habitants du doute - Extraits'
+    },
     {
       link: 'https://www.youtube.com/embed/vIMZ_22S9TA',
       legend: "L'entrevue musicale de la Fanfare"

@@ -1,6 +1,6 @@
-import React from 'react'
-import histoireImg from 'images/histoire.png'
 import aSavoirImg from 'images/asavoir.png'
+import histoireImg from 'images/histoire.png'
+import React from 'react'
 
 const Home = () => {
   return (
@@ -28,12 +28,24 @@ const Home = () => {
         maîtrise à merveille le nombre incalculable de boutons de son accordéon,
         alors pensez-donc, 30 fanfarons... Vu que la fanfare donne à voir aussi
         bien qu'à entendre, il fallait bien organiser l'espace. C'est vers Mahé
-        que la fanfare se tourne pour apprendre à tourner en rythme. Notons que
-        Mahé est assisté par Mylène. Vous l'aurez sans doute remarqué, il y a
+        que la fanfare se tourne pour apprendre à tourner en rythme. Désormais,
+        c'est avec Mylène Audoin et François Périssat que toute cette troupe
+        travaille les mises en scène. Vous l'aurez sans doute remarqué, il y a
         des chanteuses et des chanteurs dans la fanfare en plastic. Les pauvres
         se sentaient perdus, sans guide, sans lumière, sans voie et sans voix.
         Mehdi est donc arrivé pour les faire chanter et tirer le meilleur de
-        leurs cordes vocales. Notons que Mehdi est assisté par Paul.
+        leurs cordes vocales. Mehdi est désormais remplacé par un ancien
+        fanfaron, arrivé dans la troupe tout minot, il y a fort longtemps, puis
+        a fait son chemin pour devenir enfin notre chef de chœur. Il s'agit de
+        Paul Paitel. Le répertoire de la fanfare est assez hétéroclite tout en
+        restant dans la chanson (style courant quand il y des chanteurs et
+        chanteuses). On y retrouve Edith Piaf, Debout sur le Zinc, Charles
+        Aznavour, Jean Yanne, Ridan, la Compagnie Jolie Môme, les Charlots,
+        Sanseverino, Mano Solo ou encore Loïc Lantoine... Vous noterez
+        l'ouverture assez large au niveau chronologique. Cela permet de
+        contenter un maximum de gens, aussi bien chez les fanfaronronnes que
+        dans le public. Bref, la Fanfare en Plastic c'est de 7 à 77 ans, c'est
+        coloré, c'est panaché, c'est joyeux !
       </p>
       <p>
         Le répertoire de la fanfare est assez hétéroclite tout en restant dans
