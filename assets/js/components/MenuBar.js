@@ -1,8 +1,8 @@
 import React from 'react'
 
 import fanfareBandeau from 'images/fanfare-bandeau.png'
-import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
+import { Link } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 
 const MenuBar = () => {
@@ -29,7 +29,7 @@ const MenuBar = () => {
                 <ul>
                   <li className="category">Spectacles en cours</li>
                   <Link to="/les-habitants-du-doute">
-                    <li>Les habitans du doute</li>
+                    <li>Les habitants du doute</li>
                   </Link>
                   <Link to="/fanfaronnades">
                     <li>Fanfaronnades</li>

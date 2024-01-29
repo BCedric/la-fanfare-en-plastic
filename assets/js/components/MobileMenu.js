@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const MobileMenu = () => {
@@ -19,17 +18,20 @@ const MobileMenu = () => {
               <Link to="/fanfarons">
                 <li>Fanfarons</li>
               </Link>
+              <Link to="/les-habitants-du-doute">
+                <li>Les habitants du doute</li>
+              </Link>
               <Link to="/fanfaronnades">
                 <li>Fanfaronnades</li>
-              </Link>
-              <Link to="/un-grain-dans-rouages">
-                <li>Un grain dans les rouages</li>
               </Link>
               <Link to="/fabuleuse-histoire">
                 <li>Une fabuleuse histoire ordinaire</li>
               </Link>
               <Link to="/dans-la-rue">
                 <li>Dans la rue</li>
+              </Link>
+              <Link to="/un-grain-dans-rouages">
+                <li>Un grain dans les rouages</li>
               </Link>
               <Link to="/videos">
                 <li>Vidéos</li>
