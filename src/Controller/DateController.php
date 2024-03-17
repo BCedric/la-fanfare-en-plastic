@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Date;
 use App\Repository\DateRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,15 +41,15 @@ class DateController extends AbstractController
     }
 
     #[Route(path: '', name: 'date_new', methods: ['POST'])]
-    function new (Request $request, DateRepository $dateRepository): Response {
+    function new(Request $request, DateRepository $dateRepository, EntityManagerInterface $em): Response
+    {
         $body = json_decode($request->getContent(), true);
         $date = new Date();
 
         $date->set($body);
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($date);
-        $entityManager->flush();
+        $em->persist($date);
+        $em->flush();
 
         return new JsonResponse($this->getDates($dateRepository));
     }
@@ -62,12 +63,12 @@ class DateController extends AbstractController
     }
 
     #[Route(path: '/{id}', name: 'date_edit', methods: ['PUT'])]
-    public function edit(Request $request, Date $date): Response
+    public function edit(Request $request, Date $date, EntityManagerInterface $em): Response
     {
         $body = json_decode($request->getContent(), true);
         $date->set($body);
 
-        $this->getDoctrine()->getManager()->flush();
+        $em->flush();
 
         return new JsonResponse([
             'date' => $this->serializer->normalize($date, null, ['circular_reference_handler' => function ($object) {
@@ -77,12 +78,10 @@ class DateController extends AbstractController
     }
 
     #[Route(path: '/{id}', name: 'date_delete', methods: ['DELETE'])]
-    public function delete(Date $date, DateRepository $dateRepository): Response
+    public function delete(Date $date, DateRepository $dateRepository, EntityManagerInterface $em): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($date);
-        $entityManager->flush();
+        $em->remove($date);
+        $em->flush();
         return new JsonResponse($this->getDates($dateRepository));
-
     }
 }

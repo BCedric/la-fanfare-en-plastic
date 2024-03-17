@@ -102,15 +102,6 @@
     "php": {
         "version": "7.2.34"
     },
-    "phpstan/phpstan": {
-        "version": "1.10",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.0",
-            "ref": "5e490cc197fb6bb1ae22e5abbc531ddc633b6767"
-        }
-    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -195,9 +186,6 @@
             ".env"
         ]
     },
-    "symfony/form": {
-        "version": "v5.2.3"
-    },
     "symfony/framework-bundle": {
         "version": "5.2",
         "recipe": {
@@ -233,16 +221,10 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
-    "symfony/options-resolver": {
-        "version": "v5.2.3"
-    },
     "symfony/orm-pack": {
         "version": "v2.1.0"
     },
     "symfony/polyfill-intl-grapheme": {
-        "version": "v1.22.1"
-    },
-    "symfony/polyfill-intl-icu": {
         "version": "v1.22.1"
     },
     "symfony/polyfill-intl-normalizer": {
@@ -253,12 +235,6 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
-    },
-    "symfony/property-access": {
-        "version": "v5.2.3"
-    },
-    "symfony/property-info": {
-        "version": "v5.2.3"
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.3"

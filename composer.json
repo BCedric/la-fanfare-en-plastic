@@ -21,15 +21,14 @@
     "doctrine/doctrine-migrations-bundle": "^3.0",
     "doctrine/orm": "^2.8",
     "symfony/proxy-manager-bridge": "6.4.*",
-    "symfony/form": "6.4.*",
     "symfony/validator": "6.4.*",
     "symfony/security-csrf": "6.4.*",
-    "symfony/serializer": "6.4.*"
+    "symfony/serializer": "6.4.*",
+    "symfony/property-access": "6.4.*"
   },
   "require-dev": {
     "symfony/maker-bundle": "^1.29",
-    "symfony/web-profiler-bundle": "6.4.*",
-    "rector/rector": "^1.0"
+    "symfony/web-profiler-bundle": "6.4.*"
   },
   "config": {
     "platform": {

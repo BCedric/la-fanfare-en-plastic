@@ -40,7 +40,7 @@ class PressArticleController extends AbstractController
     }
 
     #[Route(path: '', name: 'press_article_new', methods: ['POST'])]
-    function new(Request $request, PressArticleRepository $pressArticleRepository): Response
+    function new(Request $request, PressArticleRepository $pressArticleRepository, EntityManagerInterface $em): Response
     {
         $body = json_decode($request->getContent(), true);
         $article = new PressArticle();
@@ -54,9 +54,8 @@ class PressArticleController extends AbstractController
             'date' => $request->request->get('date'),
         ]);
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($article);
-        $entityManager->flush();
+        $em->persist($article);
+        $em->flush();
 
         return new JsonResponse(
             $this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {

@@ -14,7 +14,7 @@ services:
     command:
       - /bin/sh
       - '-c'
-      - 'npm i && npm run watch'
+      - 'npm install && npm run watch'
     volumes:
       - './:/home/node/app:rw'
     ports:
