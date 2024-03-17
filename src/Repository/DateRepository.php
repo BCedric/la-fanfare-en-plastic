@@ -10,7 +10,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method Date|null find($id, $lockMode = null, $lockVersion = null)
  * @method Date|null findOneBy(array $criteria, array $orderBy = null)
- * @method Date[]    findAll()
  * @method Date[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class DateRepository extends ServiceEntityRepository
@@ -20,7 +19,7 @@ class DateRepository extends ServiceEntityRepository
         parent::__construct($registry, Date::class);
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->findBy(array(), array('date' => 'DESC'));
     }
@@ -33,9 +32,7 @@ class DateRepository extends ServiceEntityRepository
             ->setParameter('date', $now->format('Y-m-d H:i:s'))
             ->orderBy('d.date', 'ASC')
             ->getQuery()
-            ->getResult()
-        ;
-
+            ->getResult();
     }
 
     public function findPassedDates()
@@ -46,9 +43,7 @@ class DateRepository extends ServiceEntityRepository
             ->setParameter('date', $now->format('Y-m-d H:i:s'))
             ->orderBy('d.date', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
-
+            ->getResult();
     }
 
     // /**

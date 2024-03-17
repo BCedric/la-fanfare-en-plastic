@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method Fanfaron|null find($id, $lockMode = null, $lockVersion = null)
  * @method Fanfaron|null findOneBy(array $criteria, array $orderBy = null)
- * @method Fanfaron[]    findAll()
  * @method Fanfaron[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class FanfaronRepository extends ServiceEntityRepository
@@ -19,7 +18,7 @@ class FanfaronRepository extends ServiceEntityRepository
         parent::__construct($registry, Fanfaron::class);
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->findBy(array(), array('filename' => 'ASC'));
     }

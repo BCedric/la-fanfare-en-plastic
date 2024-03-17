@@ -1,6 +1,6 @@
 import React from 'react'
 
-import affiche from 'images/spectacles/fanfaronnades.jpg'
+import affiche from 'images/spectacles/Affiche les Fanfaronnades BD.jpg'
 
 const Fanfaronnades = () => {
   return (

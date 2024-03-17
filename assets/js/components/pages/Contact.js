@@ -1,5 +1,5 @@
-import React from 'react'
 import contactImg from 'images/contacts.png'
+import React from 'react'
 
 const Contact = () => {
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
       <h1>Coordonnées</h1>
       <img src={contactImg} alt="telephone" />
       <div className="contacts-content">
-        <p>Antoine : 06 75 18 69 82</p>
+        <p>Antoine : 06 77 02 89 02</p>
         <p>
           Les Ateliers Musicaux de Biard La Fanfare en Plastic 10 bis rue
           Turquant 86580 Biard

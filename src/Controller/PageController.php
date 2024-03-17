@@ -8,15 +8,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-/**
- * @Route("/page")
- */
+#[Route(path: '/page')]
 class PageController extends AbstractController
 {
 
@@ -27,18 +25,14 @@ class PageController extends AbstractController
         $this->serializer = new Serializer([new DateTimeNormalizer(), new ObjectNormalizer()], [new JsonEncoder()]);
     }
 
-    /**
-     * @Route("/{label}", name="page_index", methods={"GET"})
-     */
+    #[Route(path: '/{label}', name: 'page_index', methods: ['GET'])]
     public function index(string $label, PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['label' => $label]);
         return new JsonResponse($this->serializer->normalize($page));
     }
 
-    /**
-     * @Route("/{id}", name="page_update", methods={"PUT"})
-     */
+    #[Route(path: '/{id}', name: 'page_update', methods: ['PUT'])]
     public function update(string $id, Request $request, PageRepository $pageRepository, EntityManagerInterface $em): Response
     {
         $body = json_decode($request->getContent(), true);
@@ -47,5 +41,4 @@ class PageController extends AbstractController
         $em->flush();
         return new JsonResponse($this->serializer->normalize($page));
     }
-
 }

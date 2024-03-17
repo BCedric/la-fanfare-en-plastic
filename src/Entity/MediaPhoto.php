@@ -5,22 +5,16 @@ namespace App\Entity;
 use App\Repository\MediaPhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=MediaPhotoRepository::class)
- */
+#[ORM\Entity(repositoryClass: MediaPhotoRepository::class)]
 class MediaPhoto
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Image::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Image::class)]
     private $image;
 
     public function getId(): ?int

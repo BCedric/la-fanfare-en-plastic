@@ -1,3 +1,4 @@
 framework:
     validation:
         not_compromised_password: false
+        email_validation_mode: html5

@@ -11,15 +11,13 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-/**
- * @Route("/fanfaron")
- */
+#[Route(path: '/fanfaron')]
 class FanfaronController extends AbstractController
 {
     private $serializer;
@@ -31,9 +29,7 @@ class FanfaronController extends AbstractController
         $this->serializer = new Serializer([new DateTimeNormalizer(), new ObjectNormalizer()], [new JsonEncoder()]);
     }
 
-    /**
-     * @Route("", name="fanfaron", methods={"GET"})
-     */
+    #[Route(path: '', name: 'fanfaron', methods: ['GET'])]
     public function index(FanfaronRepository $fanfaronRepository): Response
     {
         return new JsonResponse($this->serializer->normalize($fanfaronRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
@@ -42,9 +38,7 @@ class FanfaronController extends AbstractController
         );
     }
 
-    /**
-     * @Route("", name="fanfaron_new", methods={"POST"})
-     */
+    #[Route(path: '', name: 'fanfaron_new', methods: ['POST'])]
     function new (Request $request, FanfaronRepository $fanfaronRepository, EntityManagerInterface $em): Response {
 
         $fanfaron = new Fanfaron();
@@ -61,9 +55,7 @@ class FanfaronController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/{filename}", name="fanfaron_get", methods={"GET"})
-     */
+    #[Route(path: '/{filename}', name: 'fanfaron_get', methods: ['GET'])]
     public function getFanfaron(string $filename, FanfaronRepository $fanfaronRepository): Response
     {
         $filePath = $this->directory . '/' . $filename;
@@ -74,9 +66,7 @@ class FanfaronController extends AbstractController
         return $response;
     }
 
-    /**
-     * @Route("/{id}", name="fanfaron_delete", methods={"DELETE"})
-     */
+    #[Route(path: '/{id}', name: 'fanfaron_delete', methods: ['DELETE'])]
     public function delete(Fanfaron $fanfaron, FanfaronRepository $fanfaronRepository, EntityManagerInterface $em)
     {
         $filesystem = new Filesystem();

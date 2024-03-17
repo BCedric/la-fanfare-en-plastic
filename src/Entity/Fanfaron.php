@@ -5,21 +5,15 @@ namespace App\Entity;
 use App\Repository\FanfaronRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=FanfaronRepository::class)
- */
+#[ORM\Entity(repositoryClass: FanfaronRepository::class)]
 class Fanfaron
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $filename;
 
     public function getId(): ?int

@@ -9,7 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method MediaPhoto|null find($id, $lockMode = null, $lockVersion = null)
  * @method MediaPhoto|null findOneBy(array $criteria, array $orderBy = null)
- * @method MediaPhoto[]    findAll()
+ * @method Date[]    findAll(): array
  * @method MediaPhoto[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class MediaPhotoRepository extends ServiceEntityRepository

@@ -11,15 +11,13 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-/**
- * @Route("/image")
- */
+#[Route(path: '/image')]
 class ImageController extends AbstractController
 {
 
@@ -31,9 +29,7 @@ class ImageController extends AbstractController
         $this->serializer = new Serializer([new DateTimeNormalizer(), new ObjectNormalizer()], [new JsonEncoder()]);
     }
 
-    /**
-     * @Route("", name="image_index", methods={"GET"})
-     */
+    #[Route(path: '', name: 'image_index', methods: ['GET'])]
     public function index(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findAll();
@@ -42,9 +38,7 @@ class ImageController extends AbstractController
         }]));
     }
 
-    /**
-     * @Route("/{filename}", name="image_get_one", methods={"GET"})
-     */
+    #[Route(path: '/{filename}', name: 'image_get_one', methods: ['GET'])]
     public function get_one(string $filename, ImageRepository $imageRepository): Response
     {
         $filePath = $this->directory . '/' . $filename;
@@ -52,12 +46,9 @@ class ImageController extends AbstractController
 
         $response->headers->set('Content-Type', mime_content_type($filePath));
         return $response;
-
     }
 
-    /**
-     * @Route("", name="post_image", methods={"POST"})
-     */
+    #[Route(path: '', name: 'post_image', methods: ['POST'])]
     public function post(Request $request, ImageRepository $imageRepository, EntityManagerInterface $em)
     {
         $image = new Image();
@@ -75,9 +66,7 @@ class ImageController extends AbstractController
         return $this->index($imageRepository);
     }
 
-    /**
-     * @Route("/{id}", name="delete_media", methods={"DELETE"})
-     */
+    #[Route(path: '/{id}', name: 'delete_media', methods: ['DELETE'])]
     public function delete(string $id, ImageRepository $imageRepository, EntityManagerInterface $em)
     {
         $image = $imageRepository->findOneBy(['id' => $id]);

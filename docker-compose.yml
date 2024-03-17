@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  app:
+    image: thecodingmachine/php:8.2-v4-apache
+    volumes:
+      - ./.docker/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./:/var/www/html:rw
+    ports:
+      - 80:80
+
+  nodejs:
+    image: node:18
+    working_dir: /home/node/app
+    command:
+      - /bin/sh
+      - '-c'
+      - 'npm i && npm run watch'
+    volumes:
+      - './:/home/node/app:rw'
+    ports:
+      - '3000:3000'
+
+  db:
+    image: 'mariadb:10.7.3'
+    container_name: fanfare_db
+    volumes:
+      - '/data/fanfare/db_data:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: fanfare
+      MYSQL_PASSWORD: password
+    ports:
+      - 127.0.0.1:3307:3306

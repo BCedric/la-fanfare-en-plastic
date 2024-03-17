@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method PressArticle|null find($id, $lockMode = null, $lockVersion = null)
  * @method PressArticle|null findOneBy(array $criteria, array $orderBy = null)
- * @method PressArticle[]    findAll()
  * @method PressArticle[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class PressArticleRepository extends ServiceEntityRepository
@@ -19,10 +18,9 @@ class PressArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, PressArticle::class);
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->findBy(array(), array('date' => 'DESC'));
-
     }
 
     // /**

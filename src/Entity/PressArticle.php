@@ -6,31 +6,21 @@ use App\Repository\PressArticleRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=PressArticleRepository::class)
- */
+#[ORM\Entity(repositoryClass: PressArticleRepository::class)]
 class PressArticle
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $filename;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: 'string', length: 255)]
     private $newspaper;
 
-    /**
-     * @ORM\Column(type="date", options={"default" : "1970-01-01"})
-     */
+    #[ORM\Column(type: 'date', options: ['default' => '1970-01-01'])]
     private $date;
 
     public function set($props)

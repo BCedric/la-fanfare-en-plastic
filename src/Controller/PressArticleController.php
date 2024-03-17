@@ -11,15 +11,13 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-/**
- * @Route("/press-article")
- */
+#[Route(path: '/press-article')]
 class PressArticleController extends AbstractController
 {
     private $serializer;
@@ -31,21 +29,19 @@ class PressArticleController extends AbstractController
         $this->serializer = new Serializer([new DateTimeNormalizer(), new ObjectNormalizer()], [new JsonEncoder()]);
     }
 
-    /**
-     * @Route("", name="press_articles", methods={"GET"})
-     */
+    #[Route(path: '', name: 'press_articles', methods: ['GET'])]
     public function index(PressArticleRepository $pressArticleRepository): Response
     {
-        return new JsonResponse($this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
+        return new JsonResponse(
+            $this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }])
         );
     }
 
-    /**
-     * @Route("", name="press_article_new", methods={"POST"})
-     */
-    function new (Request $request, PressArticleRepository $pressArticleRepository): Response {
+    #[Route(path: '', name: 'press_article_new', methods: ['POST'])]
+    function new(Request $request, PressArticleRepository $pressArticleRepository): Response
+    {
         $body = json_decode($request->getContent(), true);
         $article = new PressArticle();
 
@@ -62,16 +58,14 @@ class PressArticleController extends AbstractController
         $entityManager->persist($article);
         $entityManager->flush();
 
-        return new JsonResponse($this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
+        return new JsonResponse(
+            $this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }])
         );
-
     }
 
-    /**
-     * @Route("/{filename}", name="press_article", methods={"GET"})
-     */
+    #[Route(path: '/{filename}', name: 'press_article', methods: ['GET'])]
     public function getArticle(string $filename, PressArticleRepository $pressArticleRepository): Response
     {
         $filePath = $this->directory . '/' . $filename;
@@ -82,9 +76,7 @@ class PressArticleController extends AbstractController
         return $response;
     }
 
-    /**
-     * @Route("/{id}", name="pres_article_delete", methods={"DELETE"})
-     */
+    #[Route(path: '/{id}', name: 'pres_article_delete', methods: ['DELETE'])]
     public function delete(PressArticle $pressArticle, PressArticleRepository $pressArticleRepository, EntityManagerInterface $em)
     {
         $filesystem = new Filesystem();
@@ -92,11 +84,10 @@ class PressArticleController extends AbstractController
 
         $em->remove($pressArticle);
         $em->flush();
-        return new JsonResponse($this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
-            return $object->getId();
-        }])
+        return new JsonResponse(
+            $this->serializer->normalize($pressArticleRepository->findAll(), null, ['circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }])
         );
-
     }
-
 }
