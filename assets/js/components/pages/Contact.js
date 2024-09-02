@@ -17,7 +17,7 @@ const Contact = () => {
           Les Ateliers Musicaux de Biard La Fanfare en Plastic 10 bis rue
           Turquant 86580 Biard
         </p>
-        <p>contact@la-fanfare-en-plastic.com</p>
+        <p>lafanfareenplastic@gmail.com</p>
       </div>
     </div>
   )
