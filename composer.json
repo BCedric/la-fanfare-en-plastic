@@ -24,7 +24,8 @@
     "symfony/validator": "6.4.*",
     "symfony/security-csrf": "6.4.*",
     "symfony/serializer": "6.4.*",
-    "symfony/property-access": "6.4.*"
+    "symfony/property-access": "6.4.*",
+    "symfony/monolog-bundle": "^3.10"
   },
   "require-dev": {
     "symfony/maker-bundle": "^1.29",
